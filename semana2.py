@@ -34,16 +34,16 @@ def soma_intervalo(k:int, j:int) -> int:
 
 print(soma_intervalo(9,12))
 # -----------------
-def palindromo(s:str) -> bool:
+def isPal(s:str) -> bool:
     if len(s) <= 1:
         return True
     elif s[0] != s[-1]:
         return False
     else:
-        return palindromo(s[1:-1])
+        return isPal(s[1:-1])
 
-print(palindromo('OSSO'))
-print(palindromo('AULA'))
+print(isPal('OSSO'))
+print(isPal('AULA'))
 # -----------------
 def convBase2(n:int) -> str:
     if n < 2:
