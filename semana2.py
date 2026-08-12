@@ -61,14 +61,48 @@ def soma_vetor(vetor: list) -> tuple:
 
 print(soma_vetor([1,2,3,4,5]))
 # -----------------
-def encontra_maior(vetor: list) -> int:
+def findBiggest(vetor: list) -> int:
     if len(vetor) == 1:
         return vetor[0]
     else:
-        maior = encontra_maior(vetor[1:])
+        maior = findBiggest(vetor[1:])
         if vetor[0] > maior:
             return vetor[0]
         else:
             return maior
 
-print(encontra_maior([1,2,3,4,5,70,1]))
+print(findBiggest([1,2,3,4,5,70,1]))
+# -----------------
+def findSubStr(s:str, match:str) -> bool:
+    if s == match:
+        return True
+    elif len(s) < len(match):
+        return False
+    elif s[0:len(match)] == match:  
+        return True
+    else:
+        return findSubStr(s[1:], match)
+
+print(findSubStr('AULA', 'UL'))
+# -----------------
+def nroDigit(n: int) -> int:
+    if n < 10 and n > -10:
+        return 1
+    else:
+        return 1 + nroDigit(n//10)
+    
+
+print(nroDigit(-9))
+# -----------------
+def permutations(s:str) -> list:
+    if len(s) == 1:
+        return [s]
+    else:
+        perm = []
+        for i in range(len(s)):
+            for p in permutations(s[:i] + s[i+1:]):
+                perm.append(s[i] + p)
+        return perm
+
+
+print(permutations('abc'))
